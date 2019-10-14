@@ -1,0 +1,2 @@
+docker kill nestjs-test-db
+docker rm nestjs-test-db
