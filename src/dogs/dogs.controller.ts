@@ -10,8 +10,8 @@ export class DogsController {
     ) {}
 
     @Get()
-    getDogs() {
-        return 'we get all dogs';
+    findAll() {
+        return this.dogRepository.find();
     }
 
     @Post()
@@ -21,16 +21,16 @@ export class DogsController {
 
     @Get(':id')
     findOne(@Param('id') id: string) {
-        return `we get the dog with the id ${id}`;
+        return this.dogRepository.findOneDog(id);
     }
 
     @Put(':id')
-    update(@Param('id') id: string) {
-        return `we update the dog with the id ${id}`;
+    update(@Param('id') id: string, @Body() dogDto: DogDto) {
+        return this.dogRepository.updateDog(id, dogDto);
     }
 
     @Delete(':id')
     remove(@Param('id') id: string) {
-        return `we delete the dog with the id ${id}`;
+        return this.dogRepository.removeDog(id);
     }
 }
