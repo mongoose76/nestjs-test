@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, RelationId } from 'typeorm';
 import { AnimalType } from '../animalTypes/animalTypes.entity';
 
 @Entity()
@@ -11,6 +11,9 @@ export class Animal {
 
    @ManyToOne(type => AnimalType)
    type: AnimalType;
+
+   @RelationId((animal: Animal) => animal.type)
+   typeId: number;
 
    @Column()
    age: number;
