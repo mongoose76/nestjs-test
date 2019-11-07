@@ -1,8 +1,6 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { Animal } from './animals.entity';
-import { AnimalTypeRepository } from '../animalTypes/animalTypes.repository';
 import { AnimalDto } from './interfaces/animal.dto';
-import { InjectRepository } from '@nestjs/typeorm';
 
 @EntityRepository(Animal)
 export class AnimalRepository extends Repository<Animal> {
@@ -12,7 +10,7 @@ export class AnimalRepository extends Repository<Animal> {
   };
 
   findOneAnimal = async (id: number) => {
-    return this.findOneOrFail(id);
+    return this.findOneOrFail(id, { relations: ["type"] });
   };
 
   updateAnimal = async (id: number, animalDto: AnimalDto) => {
