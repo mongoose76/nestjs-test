@@ -8,12 +8,12 @@ export class Animal {
 
    @Column({length: 50, unique: true})
    name: string;
+   
+   @Column({nullable: true})
+   typeId: number;
 
    @ManyToOne(type => AnimalType)
    type: AnimalType;
-
-   @RelationId((animal: Animal) => animal.type)
-   typeId: number;
 
    @Column()
    age: number;

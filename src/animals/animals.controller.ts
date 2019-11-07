@@ -20,17 +20,17 @@ export class AnimalsController {
     }
 
     @Get(':id')
-    findOne(@Param('id') id: string) {
+    findOne(@Param('id') id: number) {
         return this.animalRepository.findOneAnimal(id);
     }
 
     @Put(':id')
-    update(@Param('id') id: string, @Body() animalDto: AnimalDto) {
+    update(@Param('id') id: number, @Body() animalDto: AnimalDto) {
         return this.animalRepository.updateAnimal(id, animalDto);
     }
 
     @Delete(':id')
-    remove(@Param('id') id: string) {
+    remove(@Param('id') id: number) {
         return this.animalRepository.removeAnimal(id);
     }
 }

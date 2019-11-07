@@ -8,15 +8,15 @@ export class AnimalTypeRepository extends Repository<AnimalType> {
     return await this.save(animalTypeDto);
   };
 
-  findOneType = async (id: string) => {
+  findOneType = async (id: number) => {
     return this.findOneOrFail(id);
   };
 
-  updateType = async (id: string, animalTypeDto: AnimalTypeDto) => {
+  updateType = async (id: number, animalTypeDto: AnimalTypeDto) => {
     return this.save({ ...animalTypeDto, id: Number(id) });
   };
 
-  removeType = async (id: string) => {
+  removeType = async (id: number) => {
     await this.findOneOrFail(id);
     return this.delete(id);
   };
