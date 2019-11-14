@@ -22,7 +22,9 @@ describe('AppController (e2e)', () => {
   });
 
   it('/ (GET)', () => {
-    let expected = [{"id":1,"name":"Kiki","typeId":1,"age":1,"breed":"labrador"}];
+    let expected = [
+      { id: 1, name: 'Kiki', typeId: 1, age: 1, breed: 'labrador' },
+    ];
     return request(app.getHttpServer())
       .get('/animals')
       .expect(200)
