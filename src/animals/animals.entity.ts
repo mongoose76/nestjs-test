@@ -1,23 +1,29 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, RelationId } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  RelationId,
+} from 'typeorm';
 import { AnimalType } from '../animalTypes/animalTypes.entity';
 
 @Entity()
 export class Animal {
-   @PrimaryGeneratedColumn()
-   id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-   @Column({length: 50, unique: true})
-   name: string;
-   
-   @Column({nullable: true})
-   typeId: number;
+  @Column({ length: 50, unique: true })
+  name: string;
 
-   @ManyToOne(type => AnimalType)
-   type: AnimalType;
+  @Column({ nullable: true })
+  typeId: number;
 
-   @Column()
-   age: number;
+  @ManyToOne(type => AnimalType)
+  type: AnimalType;
 
-   @Column({length: 100, nullable: true})
-   breed: string;
+  @Column()
+  age: number;
+
+  @Column({ length: 100, nullable: true })
+  breed: string;
 }

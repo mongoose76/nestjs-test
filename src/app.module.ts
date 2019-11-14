@@ -20,10 +20,10 @@ import { join } from 'path';
       password: 'postgres',
       database: 'nestjs-test',
       entities: [Animal, AnimalType],
-      synchronize: true
+      synchronize: true,
     }),
     AnimalsModule,
-    AnimalTypesModule
-  ]
+    AnimalTypesModule,
+  ],
 })
 export class AppModule {}

@@ -4,13 +4,12 @@ import { AnimalDto } from './interfaces/animal.dto';
 
 @EntityRepository(Animal)
 export class AnimalRepository extends Repository<Animal> {
-
   createAnimal = async (animalDto: AnimalDto) => {
     return await this.save(animalDto);
   };
 
   findOneAnimal = async (id: number) => {
-    return this.findOneOrFail(id, { relations: ["type"] });
+    return this.findOneOrFail(id, { relations: ['type'] });
   };
 
   updateAnimal = async (id: number, animalDto: AnimalDto) => {
